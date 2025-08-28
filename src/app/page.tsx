@@ -7,18 +7,21 @@ const appartments = [
     title: 'Sunny Loft in City Center',
     description: 'A beautiful, sunlit loft in the heart of the city. 2 beds, 1 bath.',
     images: ['/wombat.jpg', '/samoyed.jpg', '/Adult-capybara.webp'],
+    datePosted: '2025-01-01',
   },
   {
     id: 2,
     title: 'Cozy Suburban Home',
     description: 'Quiet neighborhood, perfect for families. 3 beds, 2 baths.',
-    images: ['/wombat.jpg', '/samoyed.jpg', '/Adult-capybara.webp'],
+    images: ['/samoyed.jpg','/wombat.jpg', '/Adult-capybara.webp'],
+    datePosted: '2025-01-02',
   },
   {
     id: 3,
     title: 'Modern Apartment with View',
     description: 'Stunning views, modern amenities, close to transport.',
     images: ['/Adult-capybara.webp', '/wombat.jpg', '/samoyed.jpg'],
+    datePosted: '2025-01-03',
   },
 ];
 
