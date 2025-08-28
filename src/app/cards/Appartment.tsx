@@ -9,9 +9,10 @@ interface AppartmentProps {
   description: string;
   images: string[];
   onSwipe?: (direction: 'left' | 'right') => void;
+  datePosted: string;
 }
 
-export const Appartment: React.FC<AppartmentProps> = ({ title, description, images, onSwipe }) => {
+export const Appartment: React.FC<AppartmentProps> = ({ title, description, images, onSwipe, datePosted }) => {
   const [{ x, y, scale, rot }, api] = useSpring(() => ({ x: 0, y: 0, scale: 1, rot: 0 }));
   const [imgIdx, setImgIdx] = useState(0);
 
@@ -95,6 +96,7 @@ export const Appartment: React.FC<AppartmentProps> = ({ title, description, imag
         <div style={{ padding: 20 }}>
           <h2 style={{ margin: 0, fontSize: 24 }}>{title}</h2>
           <p style={{ margin: '8px 0 0', color: 'var(--color-foreground)' }}>{description}</p>
+          <p style={{ margin: '8px 0 0', color: 'var(--color-foreground)', fontSize: 10, textAlign: 'right' }}>{datePosted}</p>
         </div>
       </Card>
     </animated.div>

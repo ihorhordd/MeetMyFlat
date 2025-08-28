@@ -5,5 +5,6 @@ export interface IAppartment {
     title: string;
     description: string;
     images: string[];
+    datePosted: string;
 }
 

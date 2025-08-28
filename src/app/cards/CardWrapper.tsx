@@ -19,6 +19,7 @@ export const CardWrapper = ({ appartments }: { appartments: IAppartment[] }) => 
           description={a.description}
           images={a.images}
           onSwipe={(dir) => handleSwipe(a.id, dir)}
+          datePosted={a.datePosted}
         />
       )).reverse()}
       </div>
