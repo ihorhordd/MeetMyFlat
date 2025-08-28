@@ -6,5 +6,12 @@ export interface IAppartment {
     description: string;
     images: string[];
     datePosted: string;
+    priceDetails: IPriceDetails
 }
 
+export interface IPriceDetails {
+    rentPrice: number;
+    deposit: number;
+    utilities: number;
+    negotiable: boolean;
+}

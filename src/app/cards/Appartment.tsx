@@ -3,16 +3,18 @@ import { Card, IconButton } from '@radix-ui/themes';
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 import { useSpring, animated } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
-
+import {IPriceDetails} from '../models/cards'
+import { PriceDetails } from './Price';
 interface AppartmentProps {
   title: string;
   description: string;
   images: string[];
   onSwipe?: (direction: 'left' | 'right') => void;
   datePosted: string;
+  priceDetails: IPriceDetails
 }
 
-export const Appartment: React.FC<AppartmentProps> = ({ title, description, images, onSwipe, datePosted }) => {
+export const Appartment: React.FC<AppartmentProps> = ({ title, description, images, onSwipe, datePosted, priceDetails }) => {
   const [{ x, y, scale, rot }, api] = useSpring(() => ({ x: 0, y: 0, scale: 1, rot: 0 }));
   const [imgIdx, setImgIdx] = useState(0);
 
@@ -52,13 +54,13 @@ export const Appartment: React.FC<AppartmentProps> = ({ title, description, imag
         left: 0,
         right: 0,
         margin: 'auto',
-        width: 320,
-        height: 420,
+        width: 350,
+        height: 450,
         zIndex: 1,
       }}
       className="card-glow"
     >
-      <Card style={{ width: '100%', height: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', background: 'var(--color-background)' }}>
+      <Card style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
         <div style={{ position: 'relative', width: '100%', height: 220, background: '#eee' }}>
           {images.length > 1 && (
             <IconButton variant="soft" color="purple" style={{ position: 'absolute', top: '50%', left: 8, zIndex: 2, transform: 'translateY(-50%)' }} onClick={handlePrev}>
@@ -96,7 +98,11 @@ export const Appartment: React.FC<AppartmentProps> = ({ title, description, imag
         <div style={{ padding: 20 }}>
           <h2 style={{ margin: 0, fontSize: 24 }}>{title}</h2>
           <p style={{ margin: '8px 0 0', color: 'var(--color-foreground)' }}>{description}</p>
-          <p style={{ margin: '8px 0 0', color: 'var(--color-foreground)', fontSize: 10, textAlign: 'right' }}>{datePosted}</p>
+          <div className="pt-3">
+            <PriceDetails priceDetails={priceDetails}/>
+            <p style={{ margin: '8px 0 0', color: 'var(--color-foreground)', fontSize: 10, textAlign: 'right' }}>{datePosted}</p>
+
+          </div>
         </div>
       </Card>
     </animated.div>
