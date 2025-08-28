@@ -23,8 +23,6 @@ const appartments = [
 ];
 
 export default function Home() {
-
-
   return (
     <Theme accentColor="purple">
       <div style={{
