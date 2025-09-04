@@ -7,6 +7,15 @@ export interface IAppartment {
     images: string[];
     datePosted: string;
     priceDetails: IPriceDetails
+    type: 'appartment';
+}
+export interface Rentees {
+    id: number;
+    name: string;
+    image: string;
+    description: string;
+    datePosted: string;
+    type: 'rentee';
 }
 
 export interface IPriceDetails {

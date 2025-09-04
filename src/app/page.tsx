@@ -14,7 +14,8 @@ const appartments: IAppartment[] = [
       negotiable: false,
       rentPrice: 1000,
       utilities: 500
-    }
+    },
+    type: 'appartment'
   },
   {
     id: 2,
@@ -27,7 +28,8 @@ const appartments: IAppartment[] = [
       negotiable: false,
       rentPrice: 1000,
       utilities: 500
-    }
+    },
+    type: 'appartment'
   },
   {
     id: 3,
@@ -40,7 +42,8 @@ const appartments: IAppartment[] = [
       negotiable: false,
       rentPrice: 1000,
       utilities: 500
-    }
+    },
+    type: 'appartment'
   },
 ];
 
@@ -55,7 +58,7 @@ export default function Home() {
           background: 'var(--color-background)',
           position: 'relative'
         }}>
-          <CardProvider appartments={appartments} />
+          <CardProvider cardsArr={appartments} />
         </div>
       </Theme>
   );
