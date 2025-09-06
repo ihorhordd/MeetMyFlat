@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, IconButton } from '@radix-ui/themes';
+import { Card, IconButton, Text } from '@radix-ui/themes';
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 import { useSpring, animated } from 'react-spring';
 import { useDrag } from 'react-use-gesture';
@@ -21,10 +21,10 @@ export const Appartment: React.FC<AppartmentProps> = ({ title, description, imag
   const bind = useDrag(({ down, movement: [mx, my], direction: [dx], velocity, cancel, canceled }) => {
     if (down && velocity > 1.2) {
       // Swipe detected
-      const dir = dx > 0 ? 'right' : 'left';
-      api.start({ x: dx > 0 ? 1000 : -1000, rot: dx * 10, scale: 1 });
+      const direction = dx > 0 ? 'right' : 'left';
+      api.start({ x: dx > 0 ? 1000 : -1000, rot: dx * 10, scale: 1, config: {duration: 280} });
       setTimeout(() => {
-        onSwipe?.(dir as 'left' | 'right');
+        onSwipe?.(direction as 'left' | 'right');
       }, 200);
       cancel && cancel();
       return;
@@ -96,8 +96,8 @@ export const Appartment: React.FC<AppartmentProps> = ({ title, description, imag
           )}
         </div>
         <div style={{ padding: 20 }}>
-          <h2 style={{ margin: 0, fontSize: 24 }}>{title}</h2>
-          <p style={{ margin: '8px 0 0', color: 'var(--color-foreground)' }}>{description}</p>
+          <h2 style={{ margin: 0, fontSize: 24 }} className='select-none'>{title}</h2>
+          <Text style={{ margin: '8px 0 0', color: 'var(--color-foreground)' }} className='select-none'>{description}</Text>
           <div className="pt-3">
             <PriceDetails priceDetails={priceDetails}/>
             <p style={{ margin: '8px 0 0', color: 'var(--color-foreground)', fontSize: 10, textAlign: 'right' }}>{datePosted}</p>
